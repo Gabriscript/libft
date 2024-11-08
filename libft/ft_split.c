@@ -15,8 +15,8 @@
 
 static size_t	count_words(const char *s, char c);
 static size_t	word_len(const char *s, char c);
-static char	*word_create(const char *s, size_t len);
-static void	ft_free(char **s, int count);
+static char		*word_create(const char *s, size_t len);
+static void		ft_free(char **s, int count);
 
 char	**ft_split(const char *s, char c)
 {

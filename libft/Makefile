@@ -16,6 +16,11 @@ ft_isprint.c  ft_putendl_fd.c  ft_strlcat.c    ft_substr.c
 
 OBJ = $(SRC:.c=.o)
 
+BONUS = ft_lstadd_back.c ft_lstadd_front.c \
+	ft_lstdelone.c ft_lstiter.c ft_lstlast.c \
+	ft_lstnew.c ft_lstsize.c
+
+BONUS_OBJS = $(BONUS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
@@ -24,9 +29,11 @@ $(NAME): $(OBJ)
 
 %.o: %.c libft.h
 	$(CC) $(CFLAGS) -c $< -o $@
-
 clean :
-	@rm -f $(OBJ)
+	@rm -f $(OBJ) $(BONUS_OBJ)
 fclean : clean 
 	@rm -f $(NAME)
-re : fclean all	
+re : fclean all
+
+bonus: 	$(OBJS) $(BONUS_OBJS)
+	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
