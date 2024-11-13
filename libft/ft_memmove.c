@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggargani <ggargani@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ggargani <ggargani@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 12:38:58 by ggargani          #+#    #+#             */
 /*   Updated: 2024/10/30 15:51:44 by ggargani         ###   ########.fr       */
@@ -14,28 +14,28 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	unsigned char	*d;
-	unsigned char	*s;
-	unsigned char	*temp;
-	size_t			i;
+	unsigned char		*d;
+	const unsigned char	*s;
+	size_t				i;
 
-	d = (unsigned char *)dest;
-	s = (unsigned char *)src;
-	temp = (unsigned char *)malloc(n);
-	if (temp == NULL)
+	if (!dest && !src)
 		return (NULL);
+	d = (unsigned char *)dest;
+	s = (const unsigned char *)src;
 	i = 0;
-	while (i < n)
+	if (d < s)
 	{
-		temp[i] = s[i];
-		i++;
+		while (i < n)
+		{
+			d[i] = s[i];
+			i++;
+		}
 	}
-	i = 0;
-	while (i < n)
+	else
 	{
-		d[i] = temp[i];
-		i++;
+		i = n;
+		while (i--)
+			d[i] = s[i];
 	}
-	free(temp);
 	return (dest);
 }

@@ -1,10 +1,6 @@
 CC = cc
-
 CFLAGS = -Wall -Wextra -Werror
-
-
-NAME = 	libft.a
-
+NAME = libft.a
 
 SRC = ft_atoi.c  ft_itoa.c   ft_putnbr_fd.c  ft_strlcpy.c  ft_tolower.c\
 ft_bzero.c    ft_memchr.c      ft_putstr_fd.c  ft_strlen.c   ft_toupper.c\
@@ -16,24 +12,31 @@ ft_isprint.c  ft_putendl_fd.c  ft_strlcat.c    ft_substr.c
 
 OBJ = $(SRC:.c=.o)
 
-BONUS = ft_lstadd_back.c ft_lstadd_front.c \
-	ft_lstdelone.c ft_lstiter.c ft_lstlast.c \
-	ft_lstnew.c ft_lstsize.c
+BONUS = ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c \
+	 ft_lstiter_bonus.c ft_lstlast_bonus.c \
+	ft_lstnew_bonus.c ft_lstsize_bonus.c
 
 BONUS_OBJS = $(BONUS:.c=.o)
+
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	@ar rcs $(NAME) $(OBJ)
-	@echo "Library created :  $(NAME)"
+	@echo "Library created: $(NAME)"
 
 %.o: %.c libft.h
 	$(CC) $(CFLAGS) -c $< -o $@
-clean :
-	@rm -f $(OBJ) $(BONUS_OBJ)
-fclean : clean 
-	@rm -f $(NAME)
-re : fclean all
 
-bonus: 	$(OBJS) $(BONUS_OBJS)
-	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+clean:
+	@rm -f $(OBJ) $(BONUS_OBJS)
+	@echo "Cleaned object files"
+
+fclean: clean
+	@rm -f $(NAME)
+	@echo "Cleaned library file $(NAME)"
+
+re: fclean all
+
+bonus: $(OBJ) $(BONUS_OBJS)
+	@ar rcs $(NAME) $(OBJ) $(BONUS_OBJS)
+	@echo "Library with bonus files created: $(NAME)"

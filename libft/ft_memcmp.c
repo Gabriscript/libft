@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggargani <garvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ggargani <ggrgani@student.hive.fi>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 09:44:48 by ggargani          #+#    #+#             */
 /*   Updated: 2024/10/31 10:45:54 by ggargani         ###   ########.fr       */

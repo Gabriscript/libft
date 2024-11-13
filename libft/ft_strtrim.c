@@ -22,7 +22,7 @@ char	*ft_strtrim(char const *s, char const *c)
 	if (!s || !c)
 		return (NULL);
 	if (!*s)
-		return (malloc(1));
+		return (ft_calloc(1, sizeof(char)));
 	start = 0;
 	while (s[start] && ft_strchr(c, s[start]))
 		start++;
@@ -30,7 +30,7 @@ char	*ft_strtrim(char const *s, char const *c)
 	while (end > start && ft_strchr(c, s[end - 1]))
 		end--;
 	if (start >= end)
-		return (malloc(1));
+		return (ft_calloc(1, sizeof(char)));
 	str = malloc((end - start + 1) * sizeof(char));
 	if (!str)
 		return (NULL);

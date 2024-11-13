@@ -49,7 +49,7 @@ void	*ft_memcpy(void *destination, const void *source, size_t num);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
-void	*ft_calloc(size_t num, size_t size);
+void	*ft_calloc(size_t nmemb, size_t size);
 
 // Input/output functions
 void	ft_putchar_fd(char c, int fd);
@@ -71,6 +71,5 @@ void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
-void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 #endif

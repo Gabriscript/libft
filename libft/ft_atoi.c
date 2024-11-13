@@ -12,31 +12,38 @@
 #include"libft.h"
 #include<limits.h>
 
+static int	oflow(int sign);
+
 int	ft_atoi(const char *s)
 {
 	unsigned long long	result;
-	int					i;
 	int					sign;
 
-	i = 0;
 	sign = 1;
 	result = 0;
-	while (s[i] == ' ' || (s[i] >= 9 && s[i] <= 13))
-		i++;
-	if (s[i] == '-' || s[i] == '+')
+	while (*s == ' ' || (*s >= 9 && *s <= 13))
+		s++;
+	if (*s == '-' || *s == '+')
 	{
-		if (s[i] == '-')
+		if (*s == '-')
 			sign = -1;
-		i++;
+		s++;
 	}
-	while (s[i] >= '0' && s[i] <= '9')
+	while (*s >= '0' && *s <= '9')
 	{
-		result = result * 10 + (s[i] - '0');
-		if (result > LLONG_MAX && sign == 1)
-			return (-1);
-		if (result > LLONG_MAX && sign == -1)
-			return (0);
-		i++;
+		if ((result > LLONG_MAX / 10)
+			|| (result == LLONG_MAX / 10 && *s - '0' > LLONG_MAX % 10))
+			return (oflow(sign));
+		result = result * 10 + (*s - '0');
+		s++;
 	}
-	return (sign * result);
+	return ((int)sign * result);
+}
+
+static int	oflow(int sign)
+{
+	if (sign == 1)
+		return (-1);
+	else
+		return (0);
 }

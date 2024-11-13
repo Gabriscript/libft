@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggargani <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ggargani <ggargani@student.hive.it>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 10:47:38 by ggargani          #+#    #+#             */
 /*   Updated: 2024/11/07 11:26:15 by ggargani         ###   ########.fr       */
